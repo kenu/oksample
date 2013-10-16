@@ -25,6 +25,9 @@ button {
     margin: 6px;
     border-radius: 8px;
 }
+#preload {
+    display: none;
+}
 </style>
 <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
@@ -49,7 +52,7 @@ function play() {
 	var diff = mineIdx - comIdx;
 	var result;
 	if (diff === 0) {
-		result = '<div>⇿</div>비겼습니다.';
+		result = '<div>=</div>비겼습니다.';
 	} else if (diff === 1 || diff === -2) {
 		result = '<div>☜</div>당신이 이겼습니다.';
 	} else {
@@ -73,5 +76,10 @@ function getImgTag(idx) {
 	<button>바위</button>
 	<button>보</button>
 	<div id="result"></div>
+	<div id="preload">
+	    <img src="./images/paper.png">
+	    <img src="./images/rock.png">
+	    <img src="./images/scissors.png">
+	</div>
 </body>
 </html>
