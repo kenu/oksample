@@ -1,0 +1,22 @@
+* {
+text-align: center;
+}
+button {
+    width: 80px;
+    height: 80px;
+    font-size: x-large;
+    border-radius: 8px;
+}
+#result > div {
+	font-size: xx-large;
+}
+#result img {
+    width: 120px;
+    vertical-align: middle;
+    border: 2px solid #ddddcd;
+    margin: 6px;
+    border-radius: 8px;
+}
+#preload {
+    display: none;
+}
