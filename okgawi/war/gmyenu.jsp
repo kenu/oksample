@@ -4,7 +4,8 @@
 <head>
 <meta charset="utf-8">
 <title>Words</title>
-<script type="text/javascript" src="./js/jquery-2.0.3.min.js"></script>
+<link rel="stylesheet" href="./css/word.css">
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$.getJSON("./data.jsp")
