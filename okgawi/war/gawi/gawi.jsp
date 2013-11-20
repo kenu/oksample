@@ -45,5 +45,7 @@ if (user != null) {
 	    <img src="./images/rock.png">
 	    <img src="./images/scissors.png">
 	</div>
+<script src="http://www.stalk.io/stalk.js"></script>
+<script>STALK.init();</script>
 </body>
 </html>
