@@ -13,34 +13,36 @@ import com.google.appengine.api.datastore.Query;
 
 public class GawiDao {
 	private static final String KEY_KIND = "Game";
-	
+
 	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 	String keyName = "games";
 
 	public void save(Game game) {
-        Key employeeKey = KeyFactory.createKey(KEY_KIND, keyName);
-		
-		Entity employee = new Entity(KEY_KIND, employeeKey);
-		
+		Key entityKey = KeyFactory.createKey(KEY_KIND, keyName);
+
+		Entity entity = new Entity(KEY_KIND, entityKey);
+
 		User firstUser = game.getFirstUser();
 		User secondUser = game.getSecondUser();
 
-		employee.setProperty("first", firstUser.getName());
-		employee.setProperty("firstchoice", firstUser.getChoice());
-		employee.setProperty("second", secondUser.getName());
-		employee.setProperty("secondchoice", secondUser.getChoice());
+		entity.setProperty("first", firstUser.getName());
+		entity.setProperty("firstchoice", firstUser.getChoice());
+		entity.setProperty("second", secondUser.getName());
+		entity.setProperty("secondchoice", secondUser.getChoice());
 
-		employee.setProperty("datetime", new Date());
-		employee.setProperty("ip", game.getIp());
+		entity.setProperty("datetime", new Date());
+		entity.setProperty("ip", game.getIp());
 
-		datastore.put(employee);
+		datastore.put(entity);
 	}
-	
-	public List<Entity> fetchAll() {
-        Key employeeKey = KeyFactory.createKey(KEY_KIND, keyName);
-        Query query = new Query(KEY_KIND, employeeKey).addSort("datetime", Query.SortDirection.DESCENDING);
-        List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
 
-		return greetings;
+	public List<Entity> fetchAll() {
+		Key entityKey = KeyFactory.createKey(KEY_KIND, keyName);
+		Query query = new Query(KEY_KIND, entityKey).addSort("datetime",
+				Query.SortDirection.DESCENDING);
+		List<Entity> games = datastore.prepare(query).asList(
+				FetchOptions.Builder.withLimit(50));
+
+		return games;
 	}
 }
