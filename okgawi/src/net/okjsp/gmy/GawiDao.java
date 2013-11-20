@@ -27,10 +27,11 @@ public class GawiDao {
 
 		employee.setProperty("first", firstUser.getName());
 		employee.setProperty("firstchoice", firstUser.getChoice());
-		employee.setProperty("second", firstUser.getName());
+		employee.setProperty("second", secondUser.getName());
 		employee.setProperty("secondchoice", secondUser.getChoice());
 
 		employee.setProperty("datetime", new Date());
+		employee.setProperty("ip", game.getIp());
 
 		datastore.put(employee);
 	}
