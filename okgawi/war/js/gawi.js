@@ -30,6 +30,7 @@ function play() {
 	 + '<div>' + result + '</div>';
 
 	$('#result').html(message);
+	saveGame("p1", mineIdx, "p2", comIdx);
 }
 
 function getImgTag(idx) {
@@ -52,4 +53,21 @@ function showStatus(r) {
 	var s = r.status;
 	onoff = s >= 200 && s < 300 || s === 304;
 	$('#online').html(onoff);
+}
+
+function saveGame(p1, c1, p2, c2) {
+	$.ajax({
+		url:'/gawi/save.jsp',
+		type: 'post',
+		data : {
+			'p1' : p1,
+			'c1' : c1,
+			'p2' : p2,
+			'c2' : c2
+		},
+		complete: function(r) {
+			console.log(r.statusCode);
+		}
+	});
+	console.log('console' + p1 + ' ' + c1);
 }
