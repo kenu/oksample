@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Drag in Desktop</title>
+<style>
+  #dropzone {
+    height: 150px;
+    width: 100%;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px dashed #0687FF;
+  }
+  #dropzone.rounded {
+    -webkit-box-shadow: inset 0px 0px 50px #777;
+    -moz-box-shadow: inset 0px 0px 50px #777;
+    -o-box-shadow: inset 0px 0px 50px #777;
+    box-shadow: inset 0px 0px 50px #777;
+  }
+  #dnd-thumbnails {
+    height: 125px;
+    margin-top: 10px;
+  }
+  #dnd-thumbnails img {
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+    margin-right: 10px;
+    -webkit-transition: -webkit-transform 0.2s ease-in, margin-left 0.7s ease-in-out, margin-right 0.7s ease-in-out;
+    -moz-transition: -moz-transform 1s ease-in-out, margin-left 0.7s ease-in-out, margin-right 0.7s ease-in-out;
+    -o-transition: -o-transform 1s ease-in-out, margin-left 1s ease-in-out, margin-left 0.7s ease-in-out, margin-right 0.7s ease-in-out;
+  }
+  #dnd-thumbnails img:hover {
+    -webkit-transform: scale(3.0) rotate(10deg);
+    -webkit-transform-origin: 50% 75px;
+    -moz-transform: scale(3.0) rotate(10deg);
+    -moz-transform-origin: 50% 75px;
+    margin: 0 100px;
+  }
+</style>
+</head>
+<body>
+  <div class="slide device-access" id="drag-in">
+    <header><span class="js">JS</span> <h1>Desktop Drag-In (File API)</h1></header>
+    <section>
+<h3>Drag files in from the desktop:</h3>
+<pre>
+document.querySelector('#dropzone').addEventListener('drop', function(e) {
+  var reader = new <b>FileReader</b>();
+  reader.onload = function(evt) {
+    document.querySelector('img').src = evt.target.<b>result</b>;
+  };
+
+  reader.<b>readAsDataURL</b>(e.<b>dataTransfer.files[0]</b>);
+}, false);
+</pre>
+      <div class="example">
+        <div id="dropzone" class="vbox boxcenter center">
+          Drop in images from your desktop
+        </div>
+      </div>
+      <div id="dnd-thumbnails" class="center"></div>
+
+      <script src="src/dnd-lib.js" defer></script>
+      <script defer>
+        window.addEventListener('load', function(e) {
+          var dndc = new DNDFileController('dropzone', 'dnd-thumbnails');
+        }, false);
+      </script>
+    </section>
+  </div>
+</body>
+</html>
