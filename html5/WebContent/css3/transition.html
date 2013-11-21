@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transitions</title>
+<style>
+  #transitions-box-2 {
+    -webkit-transition: margin-left 1s ease-in-out;
+    -moz-transition: margin-left 1s ease-in-out;
+    -o-transition: margin-left 1s ease-in-out;
+    transition: margin-left 1s ease-in-out;
+  }
+  .transitions .left {
+    margin-left: 0;
+  }
+  .transitions .right {
+    margin-left: 780px;
+  }
+  .transitions div {
+    width: 20px;
+    height: 20px;
+    background: red;
+  }
+</style>
+</head>
+<body>
+        <div class="slide styling" id="css-transitions">
+          <header><span class="css">CSS</span> <h1>Transitions</h1></header>
+          <section>
+
+          <div class="transitions example">
+            <div id="transitions-box-1"></div>
+          </div>
+
+<pre>#box.left {
+  margin-left: 0;
+}
+#box.right {
+  margin-left: 1000px;
+}
+
+document.getElementById('box').className = 'left'; <button onclick="transitionLeft(1)">Left</button>
+document.getElementById('box').className = 'right'; <button onclick="transitionRight(1)">Right</button>
+</pre>
+
+          <div class="transitions example">
+            <div id="transitions-box-2"></div>
+          </div>
+
+<pre>#box {
+  -webkit-<b>transition</b>: margin-left 1s ease-in-out;
+}
+
+document.getElementById('box').className = 'left'; <button onclick="transitionLeft(2)">Left</button>
+document.getElementById('box').className = 'right'; <button onclick="transitionRight(2)">Right</button>
+</pre>
+
+
+            <script defer>
+              function transitionLeft(no) {
+                document.getElementById('transitions-box-' + no).className = 'left';
+              }
+              function transitionRight(no) {
+                document.getElementById('transitions-box-' + no).className = 'right';
+              }
+            </script>
+          </section>
+        </div>
+</body>
+</html>

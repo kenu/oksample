@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Animations</title>
+<style>
+  #animation-example {
+    font-family: Arial;
+    text-align: center;
+    line-height: 100px;
+  }
+  #animation-note { 
+    font-size: 10px;
+  }
+  /* presently webkit-only */
+  @-webkit-keyframes pulse {
+   from {
+     opacity: 0.0;
+     font-size: 50px;
+   }
+   to {
+     opacity: 1.0;
+     font-size: 100px;
+   }
+  }
+
+  #animation-example {
+    -webkit-animation-name: pulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+  }
+</style>
+</head>
+<body>
+        <div class="slide styling" id="css-animation">
+          <header><span class="css">CSS</span> <h1>Animations</h1></header>
+          <section>
+
+<pre>@-webkit-<b>keyframes</b> <em>pulse</em> {
+ <b>from</b> {
+   opacity: 0.0;
+   font-size: 100%;
+ }
+ <b>to</b> {
+   opacity: 1.0;
+   font-size: 200%;
+ }
+}
+
+div {
+  -webkit-<b>animation-name</b>: <em>pulse</em>;
+  -webkit-<b>animation-duration</b>: 2s;
+  -webkit-<b>animation-iteration-count</b>: infinite;
+  -webkit-<b>animation-timing-function</b>: ease-in-out;
+  -webkit-<b>animation-direction</b>: alternate;
+}
+</pre>
+            <p id="animation-note">
+              *Please make a better use of it. We don't want a new blink tag ;)
+            </p>
+
+            <div id="animation-example" class="example">
+              Pulse!
+            </div>
+          </section>
+        </div>
+</body>
+</html>

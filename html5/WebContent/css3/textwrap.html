@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Text wrapping</title>
+<style>
+  div#wrapping {width: 95%}
+  #overflow-hidden { font-size: 25px; height: 1.1em; overflow: hidden; }
+  #no-wrap { font-size: 25px; height: 1.1em; white-space: nowrap; overflow: hidden; }
+  #ellipsis { font-size: 25px; text-overflow: ellipsis; white-space: nowrap; height: 1.1em; overflow: hidden; }
+</style>
+</head>
+<body>
+        <div class="slide styling" id="text-wrapping">
+          <header><span class="css">CSS</span> <h1>Text wrapping</h1></header>
+          <section>
+            <pre>div {
+  <b>text-overflow: ellipsis;</b>
+}</pre>
+
+            <div id="wrapping">
+              <div id="overflow-hidden" class="example">
+                A long cold winter delayed the blossoming of the millions of cherry, apricot, peach, and prune plum trees covering hundreds of square miles of the Valley floor. Then, unlike many years, the rains that followed were light and too early to knock the blossoms from their branches.
+              </div>
+              <div id="no-wrap" class="example">
+                A long cold winter delayed the blossoming of the millions of cherry, apricot, peach, and prune plum trees covering hundreds of square miles of the Valley floor. Then, unlike many years, the rains that followed were light and too early to knock the blossoms from their branches.
+              </div>
+              <div id="ellipsis" class="example">
+                A long cold winter delayed the blossoming of the millions of cherry, apricot, peach, and prune plum trees covering hundreds of square miles of the Valley floor. Then, unlike many years, the rains that followed were light and too early to knock the blossoms from their branches.
+              </div>
+            </div>
+            <input type="range" min="0" max="100" value="95" onchange="changeWrapping(event)">
+            <p class="center">
+              Play with the slider on this and further pages!
+            </p>
+          </section>
+
+          <script defer>
+            function changeWrapping(event) {
+              document.getElementById('wrapping').style.width = event.target.value + '%';
+            }
+          </script>
+        </div>
+</body>
+</html>

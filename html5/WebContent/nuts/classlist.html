@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Element.classList</title>
+</head>
+<body>
+        <div class="slide performance" id="class-list">
+          <header><span class="js">JS</span> <h1>Element.classList</h1></header>
+          <section>
+            <pre>&lt;div id="main" class="shadow rounded"&gt;&lt;/div&gt;</pre>
+            <pre>
+var el = document.querySelector('#main').<b>classList</b>;
+el.<b>add</b>('highlight');
+el.<b>remove</b>('shadow');
+el.<b>toggle</b>('highlight');
+
+console.log(el.<b>contains</b>('highlight')); // false
+console.log(el.<b>contains</b>('shadow')); // false
+console.log(el.<b>classList</b>.toString() == el.className); // true
+</pre>
+<p>Output:</p>
+<pre>
+&lt;div id="main" class="rounded"&gt;&lt;/div&gt;
+</pre>
+          </section>
+        </div>
+</body>
+</html>

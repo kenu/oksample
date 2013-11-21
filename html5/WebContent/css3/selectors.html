@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Selectors</title>
+<style>
+  .row {
+    padding: 4px;
+  }
+  .row:nth-child(even) {
+    background: #bbb;
+    color: white;
+  }
+</style> 
+</head>
+<body>
+        <div class="slide styling" id="css-selectors">
+          <header><span class="css">CSS</span> <h1>CSS Selectors</h1></header>
+          <section class="left">
+            <h2>Selectors</h2>
+<pre>.row:<b>nth-child(even)</b> {
+  background: #dde;
+}
+.row:<b>nth-child(odd)</b> {
+  background: white;
+}
+</pre>
+            <div class="example"> 
+              <div class="row">Row 1</div> 
+              <div class="row">Row 2</div> 
+              <div class="row">Row 3</div> 
+              <div class="row">Row 4</div> 
+            </div>  
+            <h2>Image-like display</h2> 
+            <pre>div {
+  display: <b>inline-block</b>;
+}
+</pre> 
+          </section> 
+          
+          <section class="right"> 
+            <h2>Specific attributes</h2> 
+            <pre>input<b>[type="text"]</b> {
+  background: #eee;
+}</pre>          
+            
+            <h2>Negation</h2> 
+            <pre><b>:not</b>(.box) {
+  color: #00c; 
+}            
+<b>:not</b>(span) {
+  display: block; 
+}  
+</pre> 
+
+            <h2>More specific targetting</h2> 
+            <pre>h2:<b>first-child</b> { ... }
+
+div.text <b>&gt;</b> div { ... } 
+h2 <b>+</b> header { ... } 
+</pre>            
+          </section>
+          <footer><a href="http://www.w3.org/TR/CSS2/selector.html#pattern-matching">CSS2 selectors</a> and <a href="http://www.w3.org/TR/css3-selectors/#selectors">CSS3 selectors</a> introduced some of the ones demonstrated here.</footer>
+        </div>
+</body>
+</html>
