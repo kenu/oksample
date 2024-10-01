@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Local Storage</title>
+<script type="text/javascript">
+	function init() {
+		var area = document.getElementById('area');
+		area.value = window.localStorage.getItem('value');
+		
+		var saveButton = document.getElementById('saveButton');
+		
+		//use localStorage for persistent storage
+		//use sessionStorage for per tab storage
+		saveButton.addEventListener('click', function() {
+			window.localStorage.setItem('value', area.value);
+			window.localStorage.setItem('timestamp', (new Date()).getTime());
+
+			window.sessionStorage.setItem('value', area.value);
+			window.sessionStorage.setItem('timestamp', (new Date()).getTime());
+		}, false);
+	}
+
+	window.onload = init;
+</script>
+</head>
+<body>
+<textarea rows="4" cols="10" id="area"></textarea>
+<button id="saveButton">Save</button>
+</body>
+</html>

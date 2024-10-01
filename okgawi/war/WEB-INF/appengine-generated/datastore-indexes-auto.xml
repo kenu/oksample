@@ -1,0 +1,10 @@
+<!-- Indices written at Thu, 21 Nov 2013 12:23:38 KST -->
+
+<datastore-indexes>
+
+    <!-- Used 5 times in query history -->
+    <datastore-index kind="Game" ancestor="true" source="auto">
+        <property name="datetime" direction="desc"/>
+    </datastore-index>
+
+</datastore-indexes>

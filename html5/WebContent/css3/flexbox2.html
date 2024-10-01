@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flexible Box Model</title>
+<style>
+  #box-orient-example-2 {
+    height: 200px; 
+    display: -moz-box; 
+    -moz-box-pack: center;
+    -moz-box-align: center; 
+    -moz-box-orient: horizontal;
+    
+    display: -webkit-box; 
+    -webkit-box-pack: center;
+    -webkit-box-align: center; 
+    -webkit-box-orient: horizontal;
+  }
+  #box-orient-example-2 div, #box-orient-example-2 textarea {
+    background: #ddd; padding: 10px; width: 200px; font-size: 14px;
+  }
+</style>
+</head>
+<body>
+        <div class="slide styling" id="flex-box-2">
+          <header><span class="css">CSS</span> <h1>Flexible Box Model</h1></header>
+          <section> 
+<pre>.box {
+    display: -webkit-<b>box</b>;
+    -webkit-<b>box-pack</b>: <select onchange='changeBoxPack(event)'> 
+        <option>center</option> 
+        <option>start</option> 
+        <option>end</option> 
+      </select>;
+    -webkit-<b>box-align</b>: <select onchange='changeBoxAlign(event)'> 
+        <option>center</option> 
+        <option>start</option> 
+        <option>end</option> 
+        <option>stretch</option> 
+      </select>;
+  }
+</pre> 
+
+            <div id="box-orient-example-2" class="example">
+              <textarea>change the dropdowns and resize this &lt;textarea&gt;</textarea> 
+            </div>
+
+            <script defer> 
+              function changeBoxPack(event) {
+                var el = document.getElementById('box-orient-example-2');
+                el.style.webkitBoxPack = event.target.value;
+                el.style.MozBoxPack = event.target.value; 
+              }
+              function changeBoxAlign(event) {
+                var el = document.getElementById('box-orient-example-2');
+                el.style.webkitBoxAlign = event.target.value;
+                el.style.MozBoxAlign = event.target.value; 
+              }
+            </script> 
+
+          </section> 
+        </div>
+
+
+</body>
+</html>

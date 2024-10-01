@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Opacity</title>
+<style>
+  #opacity-body {
+    font-size: 84%;
+    max-width: 800px;
+    background: url(./opacity_bg.jpg) top center no-repeat;
+    margin: 0 auto;
+    padding: 20px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+  }
+  #opacity-example {
+    margin: 100px auto;
+    font-size: 80px;
+    line-height: 200px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: -4px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-shadow: none;
+    color: rgba(255, 0, 0, 0.746094);
+    background-image: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgba(0, 0, 255, 0.746094);
+    background-position: initial initial;
+    background-repeat: initial initial;
+  }
+</style>
+</head>
+<body>
+        <div class="slide styling" id="css-opacity">
+          <header><span class="css">CSS</span> <h1>Opacity</h1></header>
+          <section>
+
+<pre>  color: <b>rgba</b>(255, 0, 0, <span id="opacity-color-value">0.75</span>); <input id="opacity-color" type="range" min="0" max="100" value="75" onchange="changeOpacity()">
+  background: <b>rgba</b>(0, 0, 255, <span id="opacity-background-value">0.75</span>); <input id="opacity-background" type="range" min="0" max="100" value="75" onchange="changeOpacity()">
+</pre>
+
+            <div id="opacity-body">
+              <div id="opacity-example">
+                Independent opacity
+              </div>
+            </div>
+
+            <script defer>
+              function changeOpacity() {
+                var textOpacity = (document.getElementById('opacity-color').value / 100).toFixed(2);
+                var backgroundOpacity = (document.getElementById('opacity-background').value / 100).toFixed(2);
+
+                var el = document.getElementById('opacity-example');
+
+                el.style.color = 'rgba(255, 0, 0, ' + textOpacity + ')';
+                el.style.background = 'rgba(0, 0, 255, ' + backgroundOpacity + ')';
+
+                document.getElementById('opacity-color-value').textContent = textOpacity;
+                document.getElementById('opacity-background-value').textContent = backgroundOpacity;
+              }
+
+              changeOpacity();
+            </script>
+          </section>
+
+        </div>
+</body>
+</html>

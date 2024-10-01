@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SVG</title>
+<style>
+  #svg {
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+  }
+</style>
+</head>
+<body>
+        <div class="slide effects" id="inline-svg">
+          <header><span class="html">HTML</span> <h1>Inline SVG</h1></header>
+          <section>
+
+            <pre>&lt;html&gt;
+  <b>&lt;svg&gt;
+    &lt;circle id="myCircle" class="important" cx="50%" cy="50%" r="100" 
+        fill="url(#myGradient)"
+        onmousedown="alert('hello');"/&gt;
+  &lt;/svg&gt;</b>
+&lt;/html&gt;</pre>
+
+            <div class="svg"></div>
+
+          <script defer>
+            // insert SVG using script until SVG in HTML5 is more widely supported
+            // (currently supported in IE 9 and Firefox nightlies only)
+            var container = document.getElementsByClassName('svg')[0];
+            var svgns = 'http://www.w3.org/2000/svg';
+            var svg = document.createElementNS(svgns, 'svg');
+            svg.setAttribute('width', '300px');
+            svg.setAttribute('height', '300px');
+            
+            // our linearGradient
+            var defs = document.createElementNS(svgns, 'defs');
+            var gradient = document.createElementNS(svgns, 'linearGradient');
+            gradient.setAttribute('id', 'myGradient');
+            gradient.setAttribute('x1', '0%');
+            gradient.setAttribute('y1', '100%');
+            gradient.setAttribute('x2', '100%');
+            gradient.setAttribute('y2', '0%');
+            var stop = document.createElementNS(svgns, 'stop');
+            stop.setAttribute('offset', '5%');
+            stop.setAttribute('stop-color', 'red');
+            gradient.appendChild(stop);
+            stop = document.createElementNS(svgns, 'stop');
+            stop.setAttribute('offset', '95%');
+            stop.setAttribute('stop-color', 'blue');
+            stop.setAttribute('stop-opacity', '0.5');
+            gradient.appendChild(stop);
+            defs.appendChild(gradient);
+            svg.appendChild(defs);
+            
+            // our example circle
+            var circle = document.createElementNS(svgns, 'circle');
+            circle.setAttribute('cx', '50%');
+            circle.setAttribute('cy', '50%');
+            circle.setAttribute('r', 100);
+            circle.setAttribute('fill', 'url(#myGradient)');
+            circle.setAttribute('stroke-color', 'red');
+            circle.addEventListener('mousedown', function() {
+              alert('hello');
+            }, false);
+            svg.appendChild(circle);
+            container.appendChild(svg);
+          </script>
+            
+          </section>
+        </div>
+</body>
+</html>

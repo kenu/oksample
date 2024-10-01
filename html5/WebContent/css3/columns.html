@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Columns</title>
+<style>
+#columns-no-example {
+  -webkit-column-count: 2;
+  -webkit-column-rule: 1px solid #bbb;
+  -webkit-column-gap: 2em;
+  -moz-column-count: 2;
+  -moz-column-rule: 1px solid #bbb;
+  -moz-column-gap: 2em;
+  column-count: 2;
+  column-rule: 1px solid #bbb;
+  column-gap: 2em;
+}
+#columns-no-example p {
+  font-size: 15px;
+}
+</style>
+</head>
+<body>
+        <div class="slide styling" id="css-columns">
+          <header><span class="css">CSS</span> <h1>Columns</h1></header>
+          <section>
+            <pre>-webkit-<b>column-count</b>: <span id="columns-no-value">2</span>; <input type="range" min="1" max="6" value="2" onchange="changeColumnNoSlider(event)">
+-webkit-<b>column-rule</b>: 1px solid #bbb;
+-webkit-<b>column-gap</b>: 2em;</pre>
+
+            <div id="columns-no-example" class="example">
+              <p>
+                In March 1936, an unusual confluence of forces occurred in 
+                Santa Clara County.
+              </p>
+              <p>
+                A long cold winter delayed the blossoming of the millions of 
+                cherry, apricot, peach, and prune plum trees covering hundreds 
+                of square miles of the Valley floor. Then, unlike many years, 
+                the rains that followed were light and too early to knock 
+                the blossoms from their branches.
+              </p>
+              <p>
+                Instead, by the billions, they all burst open at once. 
+                Seemingly overnight, the ocean of green that was the Valley 
+                turned into a low, soft, dizzyingly perfumed cloud of pink 
+                and white. Uncounted bees and yellow jackets, newly born, 
+                raced out of their hives and holes, overwhelmed by this 
+                impossible banquet.
+              </p>
+              <p>
+                Then came the wind.
+              </p>
+              <p>
+                It roared off the Pacific Ocean, through the nearly 
+                uninhabited passes of the Santa Cruz Mountains and then, 
+                flattening out, poured down into the great alluvial plains 
+                of the Valley. A tidal bore of warm air, it tore along the 
+                columns of trees, ripped the blossoms apart and carried them 
+                off in a fluttering flood of petals like foam rolling up a 
+                beach.
+              </p>
+              <p>
+                This perfumed blizzard hit Stevens Creek Boulevard, a two-lane
+                road with a streetcar line down its center, that was the main
+                road in the West Valley. It froze traffic, as drivers found
+                themselves lost in a soft, muted whiteout. Only the streetcar,
+                its path predetermined, passed on...
+              </p>
+            </div>
+          </section>
+
+          <script defer>
+            function changeColumnNoSlider(event) {
+              var val = event.target.value;
+              document.getElementById('columns-no-value').textContent = val;
+              var el = document.getElementById('columns-no-example');
+              el.style.webkitColumnCount = val;
+              el.style.MozColumnCount = val;
+            }
+          </script>
+        </div>
+</body>
+</html>

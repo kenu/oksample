@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gradients</title>
+<style>
+  #gradients-linear-example {
+    border: 0;
+    height: 100px;
+    background: -moz-linear-gradient(90deg, #00abeb, #fff, #66cc00, #fff);
+    background: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00));
+  }
+  #gradients-radial-example {
+    border: 0;
+    height: 100px;
+    background: -moz-radial-gradient(430px 50px, circle cover, red 0, #000 200px);
+    background: -webkit-gradient(radial, 430 50, 0, 430 50, 200, from(red), to(#000));
+  }
+</style>
+</head>
+<body>
+        <div class="slide styling" id="css-gradients">
+          <header><span class="css">CSS</span> <h1>Gradients</h1></header>
+
+          <section>
+            <pre>background: -webkit-<b>gradient</b>(<b>linear</b>, left top, left bottom, 
+                             from(#<span style="text-shadow: #00abeb 0 0 1px; color: #00abeb">00abeb</span>), to(white), 
+                             color-stop(0.5, white), color-stop(0.5, <span style="text-shadow: #00abeb 0 0 1px; color: #66cc00">#66cc00</span>))
+</pre>
+            <div id="gradients-linear-example" class="example"></div>
+<br />
+<pre>background: -webkit-gradient(<b>radial</b>, 430 50, 0, 430 50, <span id="gradients-radial-value">200</span>, from(red), to(#000))
+                                                        <input id="gradients-radial" type="range" min="1" max="800" value="200" onchange="changeGradients(event)">
+</pre>
+            <div id="gradients-radial-example" class="example"></div>
+
+            <script defer>
+              function changeGradients() {
+                var size = document.getElementById('gradients-radial').value;
+
+                document.getElementById('gradients-radial-example').style.background = 
+                    '-webkit-gradient(radial, 430 50, 0, 430 50, ' + size + ', from(red), to(#000))';
+
+                document.getElementById('gradients-radial-value').textContent = size;
+              }
+            </script>
+          </section>
+        </div>
+</body>
+</html>

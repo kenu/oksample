@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Custom data-* attributes</title>
+</head>
+<body>
+        <div class="slide performance" id="custom-data">
+          <header><span class="html">HTML</span> <span class="js">JS</span> <h1>Custom data-* attributes</h1></header>
+          <section>
+            <h2>Define, store, and retrieve custom data on the DOM.</h2>
+            <pre>&lt;div id="out" <b>data-id</b>="good" <b>data-name</b>="joe" <b>data-screen-name</b>="user1"&gt;&lt;/div&gt;</pre>
+
+            <pre>
+// Add new data attributes via JS.
+var el = document.querySelector('#out');
+el.setAttribute('<em>data-foo</em>', 'bar');
+
+var html = [];
+for (var key in el.<b>dataset</b>) {
+  html.push(key, ': ', el.<b>dataset</b>[key], '&lt;br&gt;');
+}
+
+el.innerHTML = html.join('');
+</pre>
+
+<p>Output:</p>
+<pre>
+id: good
+name: joe
+screenName: user1
+foo: bar
+</pre>
+          </section>
+        </div>
+</body>
+</html>

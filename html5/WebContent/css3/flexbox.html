@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flexible Box Model</title>
+<style>
+  #box-orient-example {
+    height: 260px;
+    display: -webkit-box; -webkit-box-orient: horizontal;
+    display: -moz-box; -moz-box-orient: horizontal;
+  }
+  #box-orient-example div:nth-child(1) {
+    background: white; padding: 10px; -webkit-box-flex: 1; 
+    -moz-box-flex: 1; text-align: center;
+  }
+  #box-orient-example div:nth-child(2) {
+    background: #ddd; padding: 10px; -webkit-box-flex: 1; 
+    -moz-box-flex: 1; text-align: center;
+  }
+  #box-orient-example div:nth-child(3) {
+    background: white; padding: 10px; -webkit-box-flex: 3; 
+    -moz-box-flex: 3; text-align: center;
+  }
+</style>
+</head>
+<body>
+        <div class="slide styling" id="flex-box-1">
+          <header><span class="css">CSS</span> <h1>Flexible Box Model</h1></header>
+          <section>
+<pre>.box {
+  display: -webkit-<b>box</b>;
+  -webkit-<b>box-orient</b>: <select onchange='changeBoxOrient(event)'> 
+      <option>horizontal</option> 
+      <option>vertical</option> 
+    </select>;
+}
+.box .one, .box .two {
+  -webkit-<b>box-flex</b>: 1;
+}
+.box .three {
+  -webkit-<b>box-flex</b>: 3;
+}
+</pre> 
+
+          <div id="box-orient-example" class="example">
+            <div>
+              Box one
+            </div> 
+            <div>
+              Box two
+            </div> 
+            <div>
+              Box three
+            </div> 
+          </div>
+
+          <script defer> 
+            function changeBoxOrient(event) {
+              var el = document.getElementById('box-orient-example');
+              el.style.webkitBoxOrient = event.target.value;
+              el.style.MozBoxOrient = event.target.value; 
+            }
+          </script> 
+          </section> 
+        </div>
+</body>
+</html>

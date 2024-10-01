@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AjaxProxy</title>
+<script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$.ajax({
+			//url : "http://www.marinetraffic.com/map/getjson/sw_x:125.62/sw_y:36.52/ne_x:128.02/ne_y:37.14/zoom:10/fleet:/station:0/id:null",
+			url : "proxy.jsp?http://www.marinetraffic.com/map/getjson/?",
+			dataType : "json",
+			data : {
+				sw_x : 125.62,
+				sw_y : 36.52,
+				ne_x : 128.02,
+				ne_y : 37.14,
+				zoom : 10,
+				station : 0,
+				id : 'null'
+			},
+			success : function(vessel) {
+				$.each(vessel, function(key, value) {
+					$("#result").append(value + '\n');
+				})
+			},
+			error : function(xhr, status, error) {
+				$("#result").append(error);
+            }
+		});
+	});
+</script>
+</head>
+<body>
+<pre id="result"></pre>
+</body>
+</html>
